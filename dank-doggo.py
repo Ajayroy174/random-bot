@@ -61,7 +61,7 @@ if not last_sub_id:
 else:
     log.info("Last posted submission is {}".format(last_sub_id))
 
-r = praw.Reddit(user_agent="Dank Doggo by Harsha :D", 
+r = praw.Reddit(user_agent="script by u/Unable-Goose-799 ", 
                 client_id=os.environ.get('CLIENT_ID'),
                 client_secret=os.environ.get('CLIENT_SECRET'),
                 username=os.environ.get('RUSERNAME'),
@@ -75,7 +75,7 @@ bot = telegram.Bot(token=token)
 
 while True:
     try:
-        for submission in subreddit.hot():
+        for submission in subreddit.new():
             try:
                 link = "https://redd.it/{id}".format(id=submission.id)
                 if not post and submission.created_utc < start_time:
